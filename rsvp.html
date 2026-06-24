@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RSVP | MHEDEY'S 30TH BIRTHDAY</title>
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+/* =========================
+ROOT COLORS
+========================= */
+
+:root{
+--burgundy:#6B2137;
+--gold:#D4AF37;
+--onion:#F5D6C6;
+--champagne:#F7E7CE;
+--mauve:#D8A7B1;
+--blush:#F9D5D3;
+--glass:rgba(255,255,255,.12);
+}
+
+/* =========================
+GLOBAL
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:
+radial-gradient(circle at top left,#6B2137,#2b0d16);
+min-height:100vh;
+overflow-x:hidden;
+color:white;
+position:relative;
+}
+
+/* =========================
+FLOATING PARTICLES
+========================= */
+
+.particles{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+pointer-events:none;
+overflow:hidden;
+z-index:0;
+}
+
+.particles span{
+position:absolute;
+display:block;
+background:rgba(212,175,55,.4);
+border-radius:50%;
+animation:float 15s linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-100vh);
+opacity:0;
+}
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+text-align:center;
+padding:80px 20px 30px;
+position:relative;
+z-index:2;
+}
+
+header h1{
+font-size:3rem;
+color:var(--gold);
+text-shadow:0 0 30px rgba(212,175,55,.6);
+}
+
+header h2{
+font-size:1.8rem;
+margin-top:10px;
+color:var(--champagne);
+}
+
+header p{
+margin-top:20px;
+font-size:1rem;
+color:#fff;
+}
+
+/* =========================
+CARD
+========================= */
+
+.container{
+width:90%;
+max-width:700px;
+margin:auto;
+position:relative;
+z-index:2;
+}
+
+.glass-card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.15);
+padding:40px;
+border-radius:25px;
+box-shadow:
+0 10px 40px rgba(0,0,0,.25),
+0 0 30px rgba(212,175,55,.15);
+}
+
+.form-group{
+margin-bottom:20px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+}
+
+input,
+textarea{
+width:100%;
+padding:15px;
+border:none;
+outline:none;
+border-radius:15px;
+background:rgba(255,255,255,.12);
+color:white;
+font-size:1rem;
+}
+
+textarea{
+resize:none;
+height:140px;
+}
+
+input::placeholder,
+textarea::placeholder{
+color:#ddd;
+}
+
+/* =========================
+BUTTON
+========================= */
+
+.submit-btn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:50px;
+font-size:1rem;
+font-weight:700;
+cursor:pointer;
+background:
+linear-gradient(135deg,#D4AF37,#F7E7CE);
+color:#6B2137;
+transition:.4s;
+position:relative;
+overflow:hidden;
+}
+
+.submit-btn:hover{
+transform:scale(1.03);
+box-shadow:0 0 30px rgba(212,175,55,.7);
+}
+
+.spinner{
+display:none;
+margin-left:10px;
+}
+
+/* =========================
+SUCCESS MODAL
+========================= */
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.8);
+display:flex;
+align-items:center;
+justify-content:center;
+visibility:hidden;
+opacity:0;
+transition:.4s;
+z-index:9999;
+}
+
+.modal.active{
+visibility:visible;
+opacity:1;
+}
+
+.modal-content{
+background:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+max-width:450px;
+color:#6B2137;
+}
+
+/* =========================
+SCROLL TOP
+========================= */
+
+.scroll-top{
+position:fixed;
+right:20px;
+bottom:20px;
+width:50px;
+height:50px;
+border:none;
+border-radius:50%;
+background:var(--gold);
+color:#6B2137;
+font-size:18px;
+cursor:pointer;
+display:none;
+z-index:999;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+header h1{
+font-size:2rem;
+}
+
+header h2{
+font-size:1.3rem;
+}
+
+.glass-card{
+padding:25px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+
+<header data-aos="zoom-in">
+<h1>MHEDEY'S 30TH BIRTHDAY CELEBRATION</h1>
+<h2>Talk Thirty To Me</h2>
+<p>
+We are delighted to celebrate with you.
+Kindly confirm your attendance.
+</p>
+</header>
+
+<div class="container">
+
+<div class="glass-card" data-aos="fade-up">
+
+<form id="rsvpForm"
+action="https://formsubmit.co/Ayomide4mi@gmail.com"
+method="POST">
+
+<input type="hidden" name="_subject"
+value="New RSVP Submission">
+
+<input type="hidden" name="_template"
+value="table">
+
+<input type="hidden" name="_captcha"
+value="false">
+
+<div class="form-group">
+<label>Full Name</label>
+<input type="text"
+id="name"
+name="Full Name"
+required>
+</div>
+
+<div class="form-group">
+<label>Email Address</label>
+<input type="email"
+id="email"
+name="Email"
+required>
+</div>
+
+<div class="form-group">
+<label>WhatsApp Number</label>
+<input type="tel"
+id="phone"
+name="WhatsApp Number"
+placeholder=""
+required>
+</div>
+
+<div class="form-group">
+<label>Birthday Wish</label>
+<textarea
+id="wish"
+name="Birthday Wish"
+required
+minlength="10"></textarea>
+</div>
+
+<button type="submit" class="submit-btn">
+Confirm Attendance
+<i class="fas fa-spinner fa-spin spinner"
+id="spinner"></i>
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- SUCCESS MODAL -->
+
+<div class="modal" id="successModal">
+<div class="modal-content">
+<h2>🎉 RSVP Successfully Submitted 🎉</h2>
+<p>
+Thank you for confirming your attendance.
+</p>
+</div>
+</div>
+
+<!-- AUDIO -->
+
+<audio id="bgMusic" loop>
+<source src="sand2.mp3" type="audio/mpeg">
+</audio>
+
+<!-- SCROLL TOP -->
+
+<button class="scroll-top" id="scrollTop">
+<i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!-- CONFETTI -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script>
+
+AOS.init({
+duration:1000,
+once:true
+});
+
+/* PARTICLES */
+
+const particles=document.getElementById('particles');
+
+for(let i=0;i<40;i++){
+
+const p=document.createElement('span');
+
+let size=Math.random()*8+2;
+
+p.style.width=size+'px';
+p.style.height=size+'px';
+
+p.style.left=Math.random()*100+'%';
+
+p.style.animationDuration=
+(Math.random()*10+10)+'s';
+
+particles.appendChild(p);
+
+}
+
+/* MUSIC */
+
+const music=document.getElementById('bgMusic');
+
+document.addEventListener('click',()=>{
+
+if(localStorage.getItem('music')!=='off'){
+
+music.play().catch(()=>{});
+
+}
+
+},{once:true});
+
+/* FORM */
+
+const form=document.getElementById('rsvpForm');
+
+form.addEventListener('submit',function(e){
+
+e.preventDefault();
+
+const name=
+document.getElementById('name').value.trim();
+
+const email=
+document.getElementById('email').value.trim();
+
+const phone=
+document.getElementById('phone').value.trim();
+
+const wish=
+document.getElementById('wish').value.trim();
+
+if(wish.length<10){
+
+alert('Birthday wish must be at least 10 characters.');
+
+return;
+
+}
+
+document.getElementById('spinner').style.display='inline-block';
+
+const whatsappMessage=
+`Hello Mhedey,
+
+I have successfully submitted my RSVP.
+
+Name: ${name}
+
+Email: ${email}
+
+WhatsApp: ${phone}
+
+Birthday Wish:
+${wish}
+
+Looking forward to celebrating with you.`;
+
+fetch(form.action,{
+method:'POST',
+body:new FormData(form)
+})
+.then(()=>{
+
+document.getElementById('spinner').style.display='none';
+
+document.getElementById('successModal')
+.classList.add('active');
+
+confetti({
+particleCount:250,
+spread:180,
+origin:{y:0.6}
+});
+
+setTimeout(()=>{
+
+window.location.href=
+`https://wa.me/2349129552644?text=${encodeURIComponent(whatsappMessage)}`;
+
+},3000);
+
+})
+.catch(()=>{
+
+alert('Submission failed.');
+
+});
+
+});
+
+/* SCROLL TOP */
+
+const scrollBtn=
+document.getElementById('scrollTop');
+
+window.addEventListener('scroll',()=>{
+
+scrollBtn.style.display=
+window.scrollY>300 ? 'block' : 'none';
+
+});
+
+scrollBtn.onclick=()=>{
+
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
+
+};
+
+</script>
+
+</body>
+</html>
